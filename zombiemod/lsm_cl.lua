@@ -1,4 +1,5 @@
 local devmode=(GetConvarInt("lsm_devmode",0)~=0)
+local anticheat_on=GetConvarInt("lsm_anticheat",0)
 
 local messages={
 
@@ -1010,7 +1011,9 @@ local code_veh=1000000
                     local damaged=false
                     if guard_veh_engine_health~=veh_engine then
                         if guard_veh_engine_health<veh_engine then
-                            _tse(event.debug,code_rgnv+veh_engine-guard_veh_engine_health)
+			    if anticheat_on == 1 then
+                            	_tse(event.debug,code_rgnv+veh_engine-guard_veh_engine_health)
+			    end
                         else
                             guard_veh_damaged_timestamp=timestamp
                         end
@@ -1018,7 +1021,9 @@ local code_veh=1000000
                     end
                     if guard_veh_body_health~=veh_body then
                         if guard_veh_body_health<veh_body then
-                            _tse(event.debug,code_rgnv+veh_body-guard_veh_body_health)
+			    if anticheat_on == 1 then
+				    _tse(event.debug,code_rgnv+veh_body-guard_veh_body_health)
+			    end
                         else
                             guard_veh_damaged_timestamp=timestamp
                         end
