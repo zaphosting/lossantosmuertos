@@ -1,4 +1,5 @@
 local devmode=(GetConvarInt("lsm_devmode",0)~=0)
+local anticheat_on=GetConvarInt("lsm_anticheat",0)
 
 local event={debug="dfhjsfj"}
 
@@ -426,6 +427,7 @@ Citizen.CreateThread(function()
 
     RegisterServerEvent(event.debug)--probably should be 'ddfa_debug'
     AddEventHandler(event.debug,function(n,m,details)
+     if anticheat_on == 0 then return end
      n=tonumber(n)
      if n>=code_rgnv then
       local how_much=n-code_rgnv
