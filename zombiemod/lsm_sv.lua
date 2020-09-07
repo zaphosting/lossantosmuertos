@@ -1,5 +1,5 @@
 local devmode=(GetConvarInt("lsm_devmode",0)~=0)
-local anticheat_on=GetConvarInt("lsm_anticheat",0)
+anticheat_on=GetConvarInt("lsm_anticheat",0)
 
 local event={debug="dfhjsfj"}
 
